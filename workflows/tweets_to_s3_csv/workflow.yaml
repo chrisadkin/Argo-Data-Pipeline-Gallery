@@ -34,3 +34,5 @@ spec:
         value: "mssql-2022-demo-raw"
       - name: TWITTER_QUERY
         value: "(SQL Server 2022)"
+      - name: MAX_TABLE_SIZE
+        value: "10"
