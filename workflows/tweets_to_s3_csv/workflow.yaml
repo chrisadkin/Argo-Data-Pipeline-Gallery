@@ -29,9 +29,9 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "http://{{ id address }}"
+        value: "http://{{ IP address }}"
       - name: BUCKET
-        value: "{{ s3 bucket name }}"
+        value: "{{ S3 bucket name }}"
       - name: TWITTER_QUERY
         value: "{{ twitter query }}"
       - name: MAX_TABLE_SIZE
