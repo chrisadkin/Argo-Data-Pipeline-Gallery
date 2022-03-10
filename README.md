@@ -1,9 +1,9 @@
 # Overview
 
-A collection of docker images (one initially) that can be incorporated into an Argo workflow in order to create data pipilines. The ultimate aim of this repo is to showcase:
+A collection of docker images (one initially) that can be incorporated into an Argo workflow in order to create data pipilines. The ultimate aim of this repo is to showcase via data pipeline user cases:
 
-- Portworx data services, through the lens of data pipelines
-- SQL Server 2022 S3 object virtualization via data pipeline use cases 
+- Portworx data services
+- SQL Server 2022 S3 object virtualization
 
 # Prerequisites
 
