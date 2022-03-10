@@ -29,10 +29,10 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "http://10.225.112.70"
+        value: "http://{{ id address }}"
       - name: BUCKET
-        value: "mssql-2022-demo-raw"
+        value: "{{ s3 bucket name }}"
       - name: TWITTER_QUERY
-        value: "(SQL Server 2022)"
+        value: "{{ twitter query }}"
       - name: MAX_TABLE_SIZE
         value: "10"
