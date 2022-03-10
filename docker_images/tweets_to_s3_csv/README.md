@@ -16,7 +16,7 @@ The python code that this in this folder relies on the following environment var
 
 | Name                     | Description                               | Notes                                                              |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------------ |
-| ENDPOINT_URL             | The URL endpoint for the S3 object store  | Format is http://<IP address>                                      |        
+| ENDPOINT_URL             | The URL endpoint for the S3 object store  | Format is http://IP_address                                        |        
 | BEARER_TOKEN             | Token was accessing the twitter API       | Obtained by signing up for a twitter develeper account from [here](https://developer.twitter.com/en/portal/dashboard) |
 | AWS_ACCESS_KEY_ID        | Access key for S3 object store.           |                                                                    |
 | AWS_SECRET_ACCESS_KEY_ID | Access key SECRET for S3 object store.    |                                                                    |
