@@ -4,7 +4,7 @@ A collection of docker images (one initially) that can be incorporated into an A
 
 # Prerequisites
 
-Running the examples in this repo requires access to a Kubernetes cluster to which Argo workflow deployed, refer to the [Argo workflow quick start guide](https://argoproj.github.io/argo-workflows/quick-start/) for the fastest means of deploying Argo workflow.
+Running the examples in this repo requires access to a Kubernetes cluster to which Argo workflow has been deployed, refer to the [Argo workflow quick start guide](https://argoproj.github.io/argo-workflows/quick-start/) for the fastest means of deploying Argo workflow.
 
 # Available Images
 
