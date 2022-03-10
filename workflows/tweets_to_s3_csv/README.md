@@ -12,18 +12,15 @@ kubectl create secret generic aws-access-key-id --from-literal=awsaccesskeyid=<i
 kubectl create secret generic aws-access-key-secret --from-literal=awsaccesskeyid=<insert_your_aws_access_key_secret_here>
 ```
 
-2. Replace the place holder values in the workflow.yaml file with actual values
+2. Replace the place holder values in the workflow.yaml file with actual values:
 
 ```
       - name: ENDPOINT_URL
-        value: "http://10.225.112.70"
+        value: "http://{{ IP address }}"
       - name: BUCKET
-        value: "mssql-2022-demo-raw"
+        value: "{{ S3 bucket name }}"
       - name: TWITTER_QUERY
-        value: "(SQL Server 2022)"
+        value: "{{ twitter query }}"
       - name: MAX_TABLE_SIZE
-        value: "10"
+        value: "{{ twitter API batch size }}"
 ```
-
-
-
