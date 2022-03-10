@@ -10,7 +10,7 @@ docker built . -t <tag name>
 
 # Environment Variables
 
-The python code that this in this folder relies on the following environment variables being set:
+The python code used by the docker container image relies on the following environment variables being set:
 
 | Name                     | Description                               | Notes                                                              |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------------ |
