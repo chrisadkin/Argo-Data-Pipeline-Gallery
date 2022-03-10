@@ -12,7 +12,15 @@ kubectl create secret generic aws-access-key-id --from-literal=awsaccesskeyid=<i
 kubectl create secret generic aws-access-key-secret --from-literal=awsaccesskeyid=<insert_your_aws_access_key_secret_here>
 ```
 
-2. Replace the place holder values in the workflow.yaml file with actual values:
+2. Replace the docker image name place holder with the actual name of the image to be used:
+
+```
+- name: tweets-to-s3-csv
+    container:
+      image: {{ docker image name }}
+```
+
+3. Replace the place holder values in the workflow.yaml file with actual values:
 
 ```
       - name: ENDPOINT_URL
@@ -24,3 +32,14 @@ kubectl create secret generic aws-access-key-secret --from-literal=awsaccesskeyi
       - name: MAX_TABLE_SIZE
         value: "{{ twitter API batch size }}"
 ```
+
+4. Deploy the workflow manifest to your Kubernetes cluster:
+```
+kubectl create -f < path to workflow YAML manifest file > -n < Kubernetes namespace >
+```
+
+5. Open the argo GUI to verify that workflow has executed without any issues:
+
+
+6. Inspect your S3 buckets for tweet CSV files, there is a variety of tools for doing this, this screenshot comes from Cyber Duck
+
