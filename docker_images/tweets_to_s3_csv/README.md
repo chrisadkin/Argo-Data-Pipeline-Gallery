@@ -20,7 +20,7 @@ The python code that this in this folder relies on the following environment var
 | BEARER_TOKEN             | Token was accessing the twitter API       | Obtained by signing up for a twitter develeper account from [here](https://developer.twitter.com/en/portal/dashboard) |
 | AWS_ACCESS_KEY_ID        | Access key for S3 object store.           |                                                                    |
 | AWS_SECRET_ACCESS_KEY_ID | Access key SECRET for S3 object store.    |                                                                    |
-| BUCKET                   | Name of S3 bucket to store csv files in   |                                                                    |
+| BUCKET                   | S3 bucket to store csv files in           |                                                                    |
 | MAX_TABLE_SIZE           | Batch size for extracting tweets from API | A value of 10 is recommended                                       |
 | S3_PREFIX                |                                           |                                                                    | 
 
