@@ -17,7 +17,6 @@ Running the examples in this repo requires access to a Kubernetes cluster to whi
 ```
 kubectl create -f <path to workflow manifest file> -n <Kubernetes namespace>
 ```
-
 # Available Images
 
 [tweets_to_s3_csv](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/blob/main/docker_images/tweets_to_s3_csv/README.md) - leverages the Tweepy API via Python in order to extract tweets, sentiment score the tweets and store them in csv file form in an S3 bucket
