@@ -12,8 +12,6 @@ docker built . -t <tag name>
 
 The python code that this in this folder relies on the following environment variables being set:
 
-# Executing the Code In Container Form
-
 | Name                     | Description                               | Notes                                                              |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------------ |
 | ENDPOINT_URL             | The URL endpoint for the S3 object store  | Format is http://IP_address                                        |        
