@@ -16,16 +16,20 @@ The bash script used by the docker container image relies on the following envir
 | ------------------------ | ------------------------------------------------- | ----------------------------------------------------------- |
 | ENDPOINT_URL             | The URL endpoint for the S3 object store          | Format is ```http://IP address```                           |        
 | BUCKET                   | S3 bucket containing csv files to load            |                                                             |
+| USERNAME                 | Username for connecting to cluster with           |                                                             |
+| PASSWORD                 | Password for connecting to cluster with           |                                                             |
 | CASSANDRA_HOST           | Cassandra host for connecting to the cluster with |                                                             |
 | KEYSPACE                 | Cassandra keyspace containing tweet table to load |                                                             | 
 
 # Executing the Code In Container Form
 
 ```
-docker run <tag name> -env ENDPOINT_URL="http://<IP address>" \
-                      -env BUCKET="<S3 bucket name>" \
-                      -env CASSANDRA_HOST="<Cassandra host string>" \
-                      -env KEYSPACE="<Keyspace name>"
+docker run <tag name> -e ENDPOINT_URL="http://<IP address>" \
+                      -e BUCKET="<S3 bucket name>" \
+                      -e USERNAME="<Username>" \
+                      -e PASSWORD="<Password>" \
+                      -e CASSANDRA_HOST="<Cassandra host string>" \
+                      -e KEYSPACE="<Keyspace name>"
 ```
 
 # Executing the Code In Native Bash Script Form
@@ -33,6 +37,8 @@ docker run <tag name> -env ENDPOINT_URL="http://<IP address>" \
 ```
 export ENDPOINT_URL="http://<IP address>"
 export BUCKET="<S3 bucket name>"
+export USERNAME="<Username>"
+export PASSWORD="<Password>"
 export CASSANDRA_HOST="<Cassandra host string>"
 export KEYSPACE="<Keyspace name>"
 
