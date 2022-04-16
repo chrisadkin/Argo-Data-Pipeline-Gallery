@@ -17,7 +17,7 @@ kubectl create secret generic cassandra-username --from-literal=<insert_your_cas
 kubectl create secret generic cassandra-password --from-literal=cassandrapassword=<insert_your_cassandra_password> -n <Kubernetes_namespace>
 ```
 
-2. Replace the container image name placeholder with the actual name of the image to be used in the tweets-to-s3-csv template:
+2. Replace the container image name placeholder with the actual name of the image to be used in the tweets-to-s3-csv template, the files for building the container image can be found in [this](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images/s3_csv_to_cassandra):
 
 ```
 - name: tweets-to-s3-csv
