@@ -52,13 +52,18 @@ kubectl create secret generic cassandra-password --from-literal=cassandrapasswor
         value: "{S3_endpoint_URL}"
       - name: BUCKET
         value: "{S3_bucket_name}"
-      - name: TWITTER_QUERY
-        value: "({search_text}) lang:en"
+      .
+      .
+      .
+      - name: CASSANDRA_HOST
+        value: "{cassandra_host}"
+      - name: KEYSPACE
+        value: "{keyspace_name}"
 ```
 
 6. Deploy the workflow manifest to your Kubernetes cluster:
 ```
-kubectl create -f < path to workflow YAML manifest file > -n < Kubernetes namespace >
+kubectl create -f < path to workflow YAML manifest file > -n <Kubernetes_namespace>
 ```
 
 7. Open the argo GUI to verify that workflow has executed without any issues:
