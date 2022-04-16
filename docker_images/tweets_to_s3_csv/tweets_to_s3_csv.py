@@ -52,8 +52,8 @@ def dump_to_s3(csv_buf, aws_endpoint, bucket, aws_key, aws_secret):
                         aws_secret_access_key = aws_secret,
                         endpoint_url          = aws_endpoint)
 
-    csv_name = str(uuid.uuid4()) + ".csv"
-    s3.Object(os.environ['BUCKET'], csv_name).put(Body=csv_buf)
+    csv_name = str(uuid.uuid4())
+    s3.Object(os.environ['BUCKET'], csv_name + ".csv").put(Body=csv_buf)
 
 def main():
     tweets = get_tweets(os.environ['BEARER_TOKEN'], os.environ['TWITTER_QUERY'])

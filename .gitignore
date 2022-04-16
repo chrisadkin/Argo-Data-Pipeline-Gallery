@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 docker_run.sh
+secrets.sh
