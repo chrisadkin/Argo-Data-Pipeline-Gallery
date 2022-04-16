@@ -45,6 +45,17 @@ kubectl create secret generic cassandra-password --from-literal=cassandrapasswor
       image: chrisadkin/s3_csv_to_cassandra:1.0
 ```
 
+5. Replace the placeholder values in the workflow.yaml file with actual values in the s3-csv-to-cassandra template:
+
+```
+      - name: ENDPOINT_URL
+        value: "{S3_endpoint_URL}"
+      - name: BUCKET
+        value: "{S3_bucket_name}"
+      - name: TWITTER_QUERY
+        value: "({search_text}) lang:en"
+```
+
 6. Deploy the workflow manifest to your Kubernetes cluster:
 ```
 kubectl create -f < path to workflow YAML manifest file > -n < Kubernetes namespace >
