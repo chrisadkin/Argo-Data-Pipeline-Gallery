@@ -36,11 +36,11 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "http://10.225.112.70"
+        value: "{S3_endpoint_URL}"
       - name: BUCKET
-        value: "mssql-2022-demo-raw"
+        value: "{S3_bucket_name}"
       - name: TWITTER_QUERY
-        value: "(SQL Server 2022) lang:en"
+        value: "({search_text}) lang:en"
       - name: MAX_TABLE_SIZE
         value: "10"
   - name: s3-csv-to-cassandra
@@ -63,9 +63,9 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "http://10.225.112.70"
+        value: "{S3_endpoint_URL}"
       - name: BUCKET
-        value: "mssql-2022-demo-raw"
+        value: "{S3_bucket_name}"
       - name: USERNAME
         valueFrom:
           secretKeyRef:
@@ -77,6 +77,6 @@ spec:
             name: cassandra-password
             key: cassandrapassword
       - name: CASSANDRA_HOST
-        value: "cas-cja-b7ga2b-testfest-0-vip.sales.pds-dns.io"
+        value: "{cassandra_host}"
       - name: KEYSPACE
-        value: "pds"
+        value: "{keyspace_name}"
