@@ -29,13 +29,11 @@ kubectl create secret generic cassandra-password --from-literal=cassandrapasswor
 
 ```
       - name: ENDPOINT_URL
-        value: "http://{{ IP address }}"
+        value: "{S3_endpoint_URL}"
       - name: BUCKET
-        value: "{{ S3 bucket name }}"
+        value: "{S3_bucket_name}"
       - name: TWITTER_QUERY
-        value: "{{ twitter query }}"
-      - name: MAX_TABLE_SIZE
-        value: "{{ twitter API batch size }}"
+        value: "({search_text}) lang:en"
 ```
 
 4. Replace the container image name placeholder with the actual name of the image to be used in the s3-csv-to-cassandra template:
