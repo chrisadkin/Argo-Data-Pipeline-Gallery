@@ -82,11 +82,3 @@ kubectl create secret generic cassandra-password --from-literal=cassandrapasswor
 ```
 kubectl create -f < path to workflow YAML manifest file > -n <Kubernetes_namespace>
 ```
-
-7. Open the argo GUI to verify that workflow has executed without any issues:
-
-<img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/blob/main/images/01.png?raw=true">
-
-8. Inspect your S3 buckets for tweet CSV files, there is a variety of tools for doing this, this screenshot comes from Cyberduck:
-
-<img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/blob/main/images/02.png?raw=true">
