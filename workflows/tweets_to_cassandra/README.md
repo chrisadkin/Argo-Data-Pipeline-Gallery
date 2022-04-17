@@ -5,6 +5,23 @@ Am argo workflow manifest for implementing a two stage data pipeline, that:
 - Stores sentiment scored tweets in an S3 bucket in csv file form
 - Loads the csv files from the S3 buckets into a Cassandra table
 
+# Prerequisites
+
+- An S3 compatible storage platform, to date this pipeline has been tested with Pure Storage's FlashBlade appliance.
+- A bearer token for the twitter's Tweepy V2 API, this is obtained via a twitter developer account.
+- Argo Workflows deployed to a Kubernetes cluster, follow [this guide](https://argoproj.github.io/argo-workflows/quick-start/) for the most expediant way of deploying Argo Workflows.
+- A Cassandra Cluster configured for username/password authentication.
+- A tweet table, substitute the placeholder in the the brackets with your own Cassandra keyspace:
+```
+CREATE TABLE {keyspace}.tweet (
+   tweet_id   bigint PRIMARY KEY
+  ,text_body  text
+  ,s_neg      decimal 
+  ,s_pos      decimal
+  ,s_neu      decimal
+  ,s_compound decimal);
+```
+
 # Build Instructions
 
 1. Create three Kubernetes secrets for the twitter API bearer token, AWS access key id and aws access key secret, substitute the place holders between the angular brackets for actual values:
