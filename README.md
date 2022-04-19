@@ -1,6 +1,6 @@
 # Overview
 
-Docker images that can be incorporated into an Argo workflows based data pipelines to showcase:
+This repo contains a number of Docker images that can be incorporated into an Argo workflows based data pipelines to showcase:
 
 - Portworx data services
 - SQL Server 2022 S3 object virtualization
