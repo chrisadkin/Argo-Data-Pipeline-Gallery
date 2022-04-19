@@ -26,7 +26,8 @@ CREATE TABLE {keyspace}.tweet (
 
 # Build Instructions
 
-1. Create three Kubernetes secrets for the twitter API bearer token, AWS access key id and aws access key secret, substitute the place holders between the angular brackets for actual values:
+1. Create three Kubernetes secrets for the twitter API bearer token, AWS access key id and aws access key secret, substitute the place holders
+   between the angular brackets for actual values:
 
 ```
 kubectl create secret generic bearer-token --from-literal=bearertoken=<insert_your_bearer_token_value_here> -n <Kubernetes_namespace>
@@ -36,51 +37,20 @@ kubectl create secret generic cassandra-username --from-literal=<insert_your_cas
 kubectl create secret generic cassandra-password --from-literal=cassandrapassword=<insert_your_cassandra_password> -n <Kubernetes_namespace>
 ```
 
-2. Replace the container image name placeholder with the actual name of the image to be used in the tweets-to-s3-csv template, the files for building the container image can be found in [this](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images/s3_csv_to_cassandra) folder:
+2. Create a parameters.yaml file as follows, replace the placeholders in the excerpt below with the values intended for use by the data pipeline:
 
 ```
-- name: tweets-to-s3-csv
-    container:
-      image: chrisadkin/tweets_to_s3_csv:1.0
+tweets_to_S3_csv_image: "< image name >" 
+S3_endpoint_URL: "< URL >"
+S3_bucket: "< bucket name >"
+twitter_query: "< twitter query >"
+max_table_size: "< max table size, the value 10 is a good default >"
+S3_csv_to_cassandra_image: "< image name >"
+cassandra_host: "< cassandra host >"
+keyspace: "< keyspace name >"
 ```
 
-3. Replace the placeholder values in the workflow.yaml file with actual values in the tweets-to-s3-csv template:
-
-```
-      - name: ENDPOINT_URL
-        value: "{S3_endpoint_URL}"
-      - name: BUCKET
-        value: "{S3_bucket_name}"
-      - name: TWITTER_QUERY
-        value: "({search_text}) lang:en"
-```
-
-4. Replace the container image name placeholder with the actual name of the image to be used in the s3-csv-to-cassandra template, the files for building the container image can be found [here](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images/s3_csv_to_cassandra):
-
-```
-- name: s3-csv-to-cassandra
-    dependencies: [tweets-to-s3-csv]
-    container:
-      image: chrisadkin/s3_csv_to_cassandra:1.0
-```
-
-5. Replace the placeholder values in the workflow.yaml file with actual values in the s3-csv-to-cassandra template:
-
-```
-      - name: ENDPOINT_URL
-        value: "{S3_endpoint_URL}"
-      - name: BUCKET
-        value: "{S3_bucket_name}"
-      .
-      .
-      .
-      - name: CASSANDRA_HOST
-        value: "{cassandra_host}"
-      - name: KEYSPACE
-        value: "{keyspace_name}"
-```
-
-6. Deploy the workflow manifest to your Kubernetes cluster:
+3. Deploy the workflow manifest to your Kubernetes cluster:
 ```
 argo submit < path to workflow.yaml file > -n < Kubernetes namespace > --parameter-file < path to parameters.yaml file >
 ```
