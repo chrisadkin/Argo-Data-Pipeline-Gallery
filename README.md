@@ -8,7 +8,7 @@ This repo contains a number of Docker images that can be incorporated into an Ar
 # High Level Build Instructions
 
 - The README file for each workflow contains instructions for deploying the workflow
-- Each subdirectory under the docker_images folder contains the files neccessary for building the images used by each workflow
+- Each subdirectory under the [docker_images](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images) folder contains the files neccessary for building the images used by each workflow
 
 # Available Images
 
