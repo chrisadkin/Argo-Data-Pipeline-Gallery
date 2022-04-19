@@ -9,7 +9,9 @@ Am argo workflow manifest for implementing a two stage data pipeline, that:
 
 - An S3 compatible storage platform, to date this pipeline has been tested with Pure Storage's FlashBlade appliance.
 - A bearer token for the twitter's Tweepy V2 API, this is obtained via a twitter developer account.
-- Argo Workflows deployed to a Kubernetes cluster, follow [this guide](https://argoproj.github.io/argo-workflows/quick-start/) for the most expediant way of deploying Argo Workflows.
+- Argo Workflows deployed to a Kubernetes cluster, follow [this guide](https://argoproj.github.io/argo-workflows/quick-start/)
+  for the most expediant way of deploying Argo Workflows.
+- The [Argo Workflows CLI](https://argoproj.github.io/argo-workflows/cli/)
 - A Cassandra Cluster configured for username/password authentication.
 - A tweet table, substitute the placeholder in the the brackets with your own Cassandra keyspace:
 ```
@@ -80,5 +82,5 @@ kubectl create secret generic cassandra-password --from-literal=cassandrapasswor
 
 6. Deploy the workflow manifest to your Kubernetes cluster:
 ```
-kubectl create -f < path to workflow YAML manifest file > -n <Kubernetes_namespace>
+argo submit < path to workflow.yaml file > -n < Kubernetes namespace > --parameter-file < path to parameters.yaml file >
 ```
