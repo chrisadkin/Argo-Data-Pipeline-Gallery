@@ -130,3 +130,4 @@ dmypy.json
 
 docker_run.sh
 secrets.sh
+parameters.yaml

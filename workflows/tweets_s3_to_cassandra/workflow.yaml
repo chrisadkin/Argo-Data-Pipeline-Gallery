@@ -36,15 +36,14 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "{S3_endpoint_URL}"
+        value: "{{ workflow.parameters.S3_endpoint_URL }}"
       - name: BUCKET
-        value: "{S3_bucket_name}"
+        value: "{{ workflow.parameters.S3_bucket }}"
       - name: TWITTER_QUERY
-        value: "({search_text}) lang:en"
+        value: "{{ workflow.parameters.twitter_query }}"
       - name: MAX_TABLE_SIZE
-        value: "10"
+        value: "{{ workflow.parameters.max_table_size }}"
   - name: s3-csv-to-cassandra
-    dependencies: [tweets-to-s3-csv]
     container:
       image: chrisadkin/s3_csv_to_cassandra:1.0
       command:
@@ -63,9 +62,9 @@ spec:
             name: aws-secret-access-key
             key: awssecretaccesskey
       - name: ENDPOINT_URL
-        value: "{S3_endpoint_URL}"
+        value: "{{ workflow.parameters.S3_endpoint_URL }}"
       - name: BUCKET
-        value: "{S3_bucket_name}"
+        value: "{{ workflow.parameters.S3_bucket }}"
       - name: USERNAME
         valueFrom:
           secretKeyRef:
@@ -77,6 +76,6 @@ spec:
             name: cassandra-password
             key: cassandrapassword
       - name: CASSANDRA_HOST
-        value: "{cassandra_host}"
+        value: "{{ workflow.parameters.cassandra_host }}"
       - name: KEYSPACE
-        value: "{keyspace_name}"
+        value: "{{ workflow.parameters.keyspace }}"
