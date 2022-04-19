@@ -10,7 +10,6 @@ Docker images that can be incorporated into an Argo workflows based data pipelin
 - The README file for each workflow contains instructions for deploying the workflow
 - Each subdirectory under the docker_images folder contains the files neccessary for building the images used by each workflow
 
-```
 # Available Images
 
 [tweets_to_s3_csv](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/blob/main/docker_images/tweets_to_s3_csv/README.md)
