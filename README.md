@@ -26,4 +26,4 @@ kubectl create -f <path to workflow manifest file> -n <Kubernetes namespace>
 
 # Available Workflows
 
-[tweets_to_s3_csv](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/workflows/tweets_to_s3_csv) - sample workflow manifest that leverages the tweets_to_s3_csv image as the entry point task.
+[tweets_to_s3_csv](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/workflows/tweets_s3_to_cassandra) - a example workflow manifest that loads sentiment scored tweets into Cassandra via an S3 bucket
