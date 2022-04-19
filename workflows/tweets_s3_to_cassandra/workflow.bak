@@ -14,7 +14,7 @@ spec:
 
   - name: tweets-to-s3-csv
     container:
-      image: "{{ workflow.parameters.tweets_to_S3_csv_image }}" 
+      image: chrisadkin/tweets_to_s3_csv:1.0
       command:
       - python
       args:
@@ -45,7 +45,7 @@ spec:
         value: "{{ workflow.parameters.max_table_size }}"
   - name: s3-csv-to-cassandra
     container:
-      image: "{{ workflow.parameters.S3_csv_to_cassandra_image }}" 
+      image: chrisadkin/s3_csv_to_cassandra:1.0
       command:
       - bash
       args:
