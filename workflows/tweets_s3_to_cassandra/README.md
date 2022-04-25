@@ -50,6 +50,21 @@ cassandra_host: "< cassandra host >"
 keyspace: "< keyspace name >"
 ```
 
+**Note**
+
+The Python code that captures tweets has been tested with both an on-premises appliance (Pure Storage FlashBlade) and AWS S3. For an on-premises appliance
+or software defined S3 storage platform, for the endpoint URL use:
+
+- http://<IP address>
+  
+for AWS S3, use:
+
+- protocol://service-code.region-code.amazonaws.com
+  
+  for example if the region used is US East 2 for the AWS endpoint you would use:  
+
+  http://s3.us-east-2.amazonaws.com
+
 3. Deploy the workflow manifest to your Kubernetes cluster:
 ```
 argo submit < path to workflow.yaml file > -n < Kubernetes namespace > --parameter-file < path to parameters.yaml file >
