@@ -23,8 +23,6 @@ Showcase Portworx PDS (database-as-a-service on Kubernetes) via some simple clou
 - Kubernetes
 ---
 
-## A Picture Paints a Thousand Words
+## Data Pipeline High Level Overview 
 
----
-
-<img src="images/03.png" width="1920" height="550">
+<img src="images/07.png" width="1920" height="550">
