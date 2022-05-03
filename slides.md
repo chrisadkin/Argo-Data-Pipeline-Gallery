@@ -22,5 +22,7 @@ Showcase Portworx PDS (database-as-a-service on Kubernetes) via some simple clou
 
 - Kubernetes
 ---
-<img src="images/07.png" width="1920" height="550">
+
+<img src="images/07.png">
+
 ---
