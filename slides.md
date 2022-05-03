@@ -46,7 +46,7 @@
 
 ## Prerequisites
 
-- A twitter bearer token, requires a twitter developer account
+- A twitter bearer token
 
 - Python 3 for local testing
 
