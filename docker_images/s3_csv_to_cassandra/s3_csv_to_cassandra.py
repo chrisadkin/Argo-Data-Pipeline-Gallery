@@ -14,7 +14,7 @@ def main():
                              aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY'),
                              endpoint_url          = os.getenv('ENDPOINT_URL'))
 
-    bucket = s3_conn.Bucket(os.environ('BUCKET'))
+    bucket = s3_conn.Bucket(os.getenv('BUCKET'))
 
     auth_provider = PlainTextAuthProvider(username = os.getenv('CASSANDRA_USER'), \
                                           password = os.getenv('CASSANDRA_PASSW'))
@@ -59,7 +59,7 @@ def main():
 
     for obj in bucket.objects.all():
         if obj.key.endswith('.csv'):
-            res = s3_conn.Object(os.environ['BUCKET'], obj.key).get()
+            res = s3_conn.Object(os.getenv('BUCKET'), obj.key).get()
             csv = res['Body'].read()
             csv_string_io = StringIO(str(csv, 'UTF-8'))
             data_frame = pd.read_csv(csv_string_io,
@@ -74,9 +74,9 @@ def main():
                                            row.s_negative, row.s_neutral,
                                            row.s_positive, row.s_compound))
 
-            s3_conn.Object(os.environ('BUCKET'), \
+            s3_conn.Object(os.getenv('BUCKET'), \
                            Path(obj.key).stem + ".psd").copy_from(CopySource=obj.key)
-            s3_conn.Object(os.environ('BUCKET'), obj.key).delete()
+            s3_conn.Object(os.getenv('BUCKET'), obj.key).delete()
 
     cluster.shutdown()
 
