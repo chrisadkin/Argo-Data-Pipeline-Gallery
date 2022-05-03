@@ -62,6 +62,8 @@
 
 - Portworx Data Services 
 
+---
+
 ## Getting Started
 
 1. Deploy either Postgres or Cassandra via Portworx Data Services
