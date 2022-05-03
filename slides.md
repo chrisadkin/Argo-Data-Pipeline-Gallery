@@ -21,8 +21,21 @@ Showcase Portworx PDS (database-as-a-service on Kubernetes) via some simple clou
 - Argo Workflows using the container WorkflowTemplate
 
 - Kubernetes
+
 ---
 
 <img src="images/07.png">
 
 ---
+
+## Why Use Argo Workflows ?
+
+- Cloud native from day one
+
+- No dependencies on non-Kubernetes objects
+
+- Simple to install and use
+
+- Flexible: container, resource, script, suspend and DAG templates
+
+- Git / GitHub friendly
