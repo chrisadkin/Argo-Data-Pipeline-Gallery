@@ -6,7 +6,7 @@
 
 - Showcase Portworx Data Services (PDS) via simple data pipelines
 - Present use cases leveraging tools and technology ubiquitous in the data engineering space 
-- Over time, build create a 'Gallery' of data pipelines using each database engine supported by PDS
+- Curate a 'Gallery' of data pipelines using each database engine supported by PDS
 
 ---
 
@@ -42,7 +42,7 @@
 
 - Git / GitHub friendly
 
---
+---
 
 ## Prerequisites
 
