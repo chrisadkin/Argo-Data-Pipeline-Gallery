@@ -16,10 +16,10 @@ def main():
 
     bucket = s3_conn.Bucket(os.getenv('BUCKET'))
 
-    auth_provider = PlainTextAuthProvider(username = os.getenv('CASSANDRA_USER'), \
+    auth_provider = PlainTextAuthProvider(username = os.getenv('CASSANDRA_USER'),
                                           password = os.getenv('CASSANDRA_PASSW'))
 
-    cluster = Cluster([os.getenv('CASSANDRA_IP')], \
+    cluster = Cluster([os.getenv('CASSANDRA_IP')],
                       port          = os.getenv('CASSANDRA_PORT'),
                       auth_provider = auth_provider)
 
@@ -57,8 +57,12 @@ def main():
 
     prepared = session.prepare(query)
 
+    csv_file_count = 0
+    tweets_loaded  = 0
+
     for obj in bucket.objects.all():
         if obj.key.endswith('.csv'):
+            print('loading file ' + obj.key)
             res = s3_conn.Object(os.getenv('BUCKET'), obj.key).get()
             csv = res['Body'].read()
             csv_string_io = StringIO(str(csv, 'UTF-8'))
@@ -73,12 +77,24 @@ def main():
                 session.execute(prepared, (row.tweet_id  , row.text,
                                            row.s_negative, row.s_neutral,
                                            row.s_positive, row.s_compound))
+            
+                tweets_loaded += 1 
+            csv_file_count += 1
 
-            s3_conn.Object(os.getenv('BUCKET'), \
-                           Path(obj.key).stem + ".psd").copy_from(CopySource=obj.key)
-            s3_conn.Object(os.getenv('BUCKET'), obj.key).delete()
+            copy_source = {
+                'Bucket': os.getenv('BUCKET') ,
+                'Key': obj.key 
+            }
+
+            s3_conn.meta.client.copy(copy_source, Bucket = os.getenv('BUCKET'), Key = Path(obj.key).stem + ".psd")
+            s3_conn.Object(os.getenv('BUCKET'), obj.key).delete()  
 
     cluster.shutdown()
+
+    if csv_file_count == 0:
+        print ('No csv files found')
+    else:
+        print (str(tweets_loaded) + ' tweets loaded')
 
 if __name__ == "__main__":
     main()
