@@ -45,5 +45,5 @@ export CASSANDRA_IP="<Cassandra host IP address>"
 export KEYSPACE="<Keyspace name>"
 export TABLE="<Table name>"
 
-./s3_csv_to_cassandra.sh 
+python3 s3_csv_to_cassandra.py 
 ```
