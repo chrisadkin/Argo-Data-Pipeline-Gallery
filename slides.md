@@ -43,7 +43,21 @@
 - Git / GitHub friendly
 
 ---
+## Argo Workflows The Easy Way
+```
+kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
+```
+---
+## The "Production Grade" Way
 
+You need:
+
+- A LoadBalancer endpoint
+
+- A rolebinding
+
+- Ingress rule(s)
+---
 ## Prerequisites
 
 - A twitter bearer token
