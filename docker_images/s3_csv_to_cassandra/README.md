@@ -16,7 +16,7 @@ The bash script used by the docker container image relies on the following envir
 | ------------------------ | ------------------------------------------------- | ----------------------------------------------------------- |
 | AWS_ACCESS_KEY_ID        | AWS access key id for accessing the S3 bucket     |                                                             |
 | AWS_SECRET_ACCESS_KEY    | AWS secret access key for accessing the S3 bucket |                                                             |
-| ENDPOINT_URL             | The URL endpoint for the S3 object store          | For AWS use: http://s3.<region>.amazonaws.com               |   
+| ENDPOINT_URL             | The URL endpoint for the S3 object store          | For AWS use: http://s3.REGION_GOES_HERE.amazonaws.com       |   
 | BUCKET                   | S3 bucket containing csv files to load            |                                                             |
 | CASSANDR_USER            | Username for connecting to cluster with           |                                                             |
 | CASSANDRA_PASSW          | Password for connecting to cluster with           |                                                             |
