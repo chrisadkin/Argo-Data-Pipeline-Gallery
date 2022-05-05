@@ -14,22 +14,28 @@ The bash script used by the docker container image relies on the following envir
 
 | Name                     | Description                                       | Notes                                                       |
 | ------------------------ | ------------------------------------------------- | ----------------------------------------------------------- |
-| ENDPOINT_URL             | The URL endpoint for the S3 object store          | Format is ```http://IP address```                           |   
+| AWS_ACCESS_KEY_ID        | AWS access key id for accessing the S3 bucket     |                                                             |
+| AWS_SECRET_ACCESS_KEY    | AWS secret access key for accessing the S3 bucket |                                                             |
+| ENDPOINT_URL             | The URL endpoint for the S3 object store          | For AWS use: http://s3.<region>.amazonaws.com               |   
 | BUCKET                   | S3 bucket containing csv files to load            |                                                             |
-| USERNAME                 | Username for connecting to cluster with           |                                                             |
-| PASSWORD                 | Password for connecting to cluster with           |                                                             |
+| CASSANDR_USER            | Username for connecting to cluster with           |                                                             |
+| CASSANDRA_PASSW          | Password for connecting to cluster with           |                                                             |
 | CASSANDRA_IP             | Cassandra host IP address                         |                                                             |
+| CASSANDRA_PORT           | Cassandra host port                               | The default of 9042 works in most cases                     |
 | KEYSPACE                 | Keyspace to create for tweet table                |                                                             | 
 | TABLE                    | Name of tweet table to create                     |                                                             | 
 
 # Executing the Code In Container Form
 
 ```
-docker run <tag name> -e ENDPOINT_URL="http://<IP address>" \
+docker run <tag name> -e AWS_ACCESS_KEY_ID="<Access key for bucket containing CSV files>" \
+                      -e AWS_SECRET_ACCESS_KEY="<Secret access key for bucket containing CSV files>" \
+                      -e ENDPOINT_URL="<endpoint URL>" \
                       -e BUCKET="<S3 bucket name>" \
-                      -e USERNAME="<Username>" \
-                      -e PASSWORD="<Password>" \
+                      -e CASSANDRA_USER="<Username>" \
+                      -e CASSANDRA_PASSW="<Password>" \
                       -e CASSANDRA_IP="<Cassandra host IP address>" \
+                      -e CASSANDRA_PORT="<Cassandra host port>" \
                       -e KEYSPACE="<Keyspace name>" \
                       -e TABLE="<Table name>"
 ```
@@ -37,11 +43,14 @@ docker run <tag name> -e ENDPOINT_URL="http://<IP address>" \
 # Executing the Code In Native Bash Script Form
 
 ```
-export ENDPOINT_URL="http://<IP address>"
+export AWS_ACCESS_KEY_ID="<Access key for bucket containing CSV files>"
+export AWS_SECRET_ACCESS_KEY="<Secret access key for bucket containing CSV files>"  
+export ENDPOINT_URL="<endpoint URL>"
 export BUCKET="<S3 bucket name>"
-export USERNAME="<Username>"
-export PASSWORD="<Password>"
+export CASSANDRA_USER="<Username>"
+export CASSANDRA_PASSW="<Password>"
 export CASSANDRA_IP="<Cassandra host IP address>"
+export CASSANDRA_PORT="<Cassandra host port>"
 export KEYSPACE="<Keyspace name>"
 export TABLE="<Table name>"
 
