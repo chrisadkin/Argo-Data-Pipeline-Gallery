@@ -13,15 +13,12 @@ This repo contains a number of Docker images that can be incorporated into an Ar
 # Available Images
 
 [tweets_to_s3_csv](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/blob/main/docker_images/tweets_to_s3_csv/README.md)
-
-leverages the Tweepy API via Python in order to extract tweets, sentiment score the tweets and store them in csv file form in an S3 bucket.
+Leverages the Tweepy API via Python in order to extract tweets, sentiment score the tweets and store them in csv file form in an S3 bucket.
 
 [s3_csv_to_cassandra](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images/s3_csv_to_cassandra)
-
 Loads csv files containing sentiment scored tweets into a table in a Cassandra keyspace.
 
 [s3_csv_to_postgresql](https://github.com/chrisadkin/Argo-Data-Pipeline-Gallery/tree/main/docker_images/s3_csv_to_postgresql)
-
 Loads csv files containing sentiment scored tweets into a table in a PostgreSQL database.
 
 # Available Workflows
